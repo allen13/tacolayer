@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @taco.title
+%p
+  %b Url:
+  = @taco.url
+
+= link_to 'Edit', edit_taco_path(@taco)
+\|
+= link_to 'Back', tacos_path
