@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   resources :tacos
-  root to: 'visitors#index'
+  root to: 'tacos#index'
 end

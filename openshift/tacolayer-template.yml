@@ -110,13 +110,13 @@ objects:
             timeoutSeconds: 3
             initialDelaySeconds: 5
             httpGet:
-              path: "/articles"
+              path: "/tacos"
               port: 8080
           livenessProbe:
             timeoutSeconds: 3
             initialDelaySeconds: 10
             httpGet:
-              path: "/articles"
+              path: "/tacos"
               port: 8080
           env:
           - name: DATABASE_SERVICE_NAME
@@ -141,9 +141,6 @@ objects:
             value: "${APPLICATION_PASSWORD}"
           - name: RAILS_ENV
             value: "${RAILS_ENV}"
-          resources:
-            limits:
-              memory: "${MEMORY_LIMIT}"
 - kind: Service
   apiVersion: v1
   metadata:
