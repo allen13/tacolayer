@@ -1,3 +1,5 @@
+RANDOM_TACO_URL='http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=taco'
+
 class TacosController < ApplicationController
   before_action :set_taco, only: [:show, :edit, :update, :destroy]
 
@@ -24,17 +26,13 @@ class TacosController < ApplicationController
   # POST /tacos
   # POST /tacos.json
   def create
-    @taco = Taco.new(taco_params)
+    response = RestClient.get RANDOM_TACO_URL
+    random_taco = JSON.parse(response)['data']
 
-    respond_to do |format|
-      if @taco.save
-        format.html { redirect_to @taco, notice: 'Taco was successfully created.' }
-        format.json { render :show, status: :created, location: @taco }
-      else
-        format.html { render :new }
-        format.json { render json: @taco.errors, status: :unprocessable_entity }
-      end
-    end
+    @taco = Taco.new(title: random_taco['caption'], url: random_taco['image_url'])
+    @taco.save
+    redirect_to action: 'index'
+
   end
 
   # PATCH/PUT /tacos/1

@@ -205,6 +205,8 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
@@ -311,6 +313,7 @@ DEPENDENCIES
   rb-fchange
   rb-fsevent
   rb-inotify
+  rest-client
   rspec-rails
   rubocop
   sass-rails (~> 5.0)

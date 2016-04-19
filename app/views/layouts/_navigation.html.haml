@@ -7,7 +7,7 @@
         %span.icon-bar
         %span.icon-bar
       = link_to 'Tacolayer', root_path, class: 'navbar-brand'
-      = link_to 'Automate a new taco', new_taco_path, class: 'navbar-brand'
+      = link_to 'Automate a new taco', '/tacos', :method => :post, class: 'navbar-brand'
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
         = render 'layouts/navigation_links'
